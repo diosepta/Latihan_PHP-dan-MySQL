@@ -1,0 +1,45 @@
+-- Menghapus database jika sudah ada untuk menghindari konflik
+DROP DATABASE IF EXISTS `yohanes dio`;
+
+-- Membuat database baru
+CREATE DATABASE IF NOT EXISTS `yohanes dio`;
+
+-- Menggunakan database yang baru dibuat
+USE `yohanes dio`;
+
+-- Membuat tabel skills untuk section service
+CREATE TABLE IF NOT EXISTS skills (
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    judul VARCHAR(255) NOT NULL,
+    deskripsi TEXT NOT NULL
+);
+
+-- Memasukkan data awal ke tabel skills
+INSERT INTO skills (judul, deskripsi) VALUES
+('Pemrograman', 'Keahlian dalam bahasa pemrograman seperti Python, C/C++, dan JavaScript untuk mengembangkan aplikasi dan sistem.'),
+('Mekatronika & Robotika', 'Integrasi sistem mekanik, elektronik, dan kontrol untuk merancang dan membangun robot serta sistem otomatis.'),
+('Sistem IoT', 'Pengembangan perangkat dan jaringan untuk menghubungkan objek fisik ke internet, memungkinkan pengumpulan dan pertukaran data secara real-time.'),
+('Desain & Manufaktur', 'Keahlian dalam perancangan 3D menggunakan AutoCAD dan proses manufaktur untuk produksi prototipe atau produk akhir.');
+
+-- Membuat tabel chart_data untuk data grafik
+CREATE TABLE IF NOT EXISTS chart_data (
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    label_data VARCHAR(255) NOT NULL,
+    nilai_data INT(11) NOT NULL
+);
+
+-- Memasukkan data awal ke tabel chart_data
+INSERT INTO chart_data (label_data, nilai_data) VALUES
+('Elektronika', 85),
+('Mekatronika', 75),
+('Pemrograman', 90),
+('Desain 3D', 80);
+
+-- Membuat tabel contacts untuk formulir kontak
+CREATE TABLE IF NOT EXISTS contacts (
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    nama VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    pesan TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
